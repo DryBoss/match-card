@@ -1,0 +1,80 @@
+//colors
+$text: #9FA2A6;
+$brightest: #F2F2F2;
+$middle: #404040;
+$darkest: #262626;
+$background: #0D0D0D;
+
+//default sets & designs
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+  color: $text;
+  font-size: 10px;
+}
+a {
+  text-decoration: none;
+  color: $text;
+}
+
+//body
+body {
+  background-color: $background;
+}
+
+//game board
+.game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh - 30px);
+}
+
+.game-play {
+  width: 270px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+  //cards
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    width: 270px;
+    height: 270px;
+
+    .card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+
+      img {
+        width: 60px;
+      }
+    }
+  }
+
+//footer
+footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  width: 100vw;
+}
+
+a:hover {
+  color: $brightest;
+}
