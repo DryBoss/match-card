@@ -34,6 +34,11 @@ body {
   align-items: center;
   width: 100vw;
   height: calc(100vh - 30px);
+  height: calc(var(--vh, 1vh) * 100 - 30px);
+}
+
+h1 {
+  color: $brightest;
 }
 
 .game-play {
@@ -60,10 +65,36 @@ body {
       align-items: center;
       width: 60px;
       height: 60px;
-
+      &:hover {
+        transform: scale(1.2);
+      }
       img {
         width: 60px;
       }
+    }
+  }
+
+  //buttons
+  .buttons {
+    button {
+      padding: 10px;
+      height: 50px;
+      width: 50px;
+      background-color: transparent;
+      border: 2px solid $text;
+      border-radius: 10px;
+      &:hover {
+        border-color: $brightest;
+      }
+      img {
+        width: 90%;
+      }
+    }
+    #restart:hover img {
+      content: url("/images/icons/restart_hover.png");
+    }
+    #help:hover img {
+      content: url("/images/icons/help_hover.png");
     }
   }
 
