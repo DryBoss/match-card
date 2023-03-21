@@ -58,17 +58,25 @@ h1 {
   align-items: center;
   width: 60px;
   height: 60px;
-  transition: 250ms;
 }
 .cards .card img {
   width: 60px;
 }
-.cards .hidden.card:hover {
-  transform: scale(1.2);
-}
-.cards .targeted {
+.cards .selected {
+  width: 42px;
+  height: 58px;
   border: 2px solid #F2F2F2;
-  width: 40px;
+  border-radius: 5px;
+}
+
+.card-flip.hidden {
+  transform: scale(-1, 1);
+  transition: 250ms;
+}
+
+.card-flip.revealed {
+  transform: scale(1, 1);
+  transition: 250;
 }
 
 .buttons button {
