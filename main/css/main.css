@@ -110,3 +110,9 @@ footer {
 a:hover {
   color: #F2F2F2;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    color: red;
+  }
+}

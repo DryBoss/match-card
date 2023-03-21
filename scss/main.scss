@@ -123,3 +123,7 @@ footer {
 a:hover {
   color: $brightest;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover { color: red; }
+}

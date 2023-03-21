@@ -31,20 +31,26 @@ let selectedCard = "";
 function cardClicked (cardNumber, cardId) {
   if (selectedCard === "") {
     cardNumber.classList.add("selected");
-    cardStatus[cardId] = 1;
     selectedCard = cardNumber;
   } else if (selectedCard === cardNumber) {
     cardNumber.classList.remove("selected");
-    cardStatus[cardId] = 0;
     selectedCard = "";
   } else if (selectedCard !== cardNumber) {
+    cardNumber.classList.add("selected")
     cardNumber.classList.add("card-flip")
+    selectedCard.classList.add("card-flip")
     setTimeout(() => {
       cardNumber.classList.add("revealed")
-    }, 250)
+      selectedCard.classList.add("revealed")
+    }, 750)
     setTimeout(() => {
+      cardNumber.classList.remove("selected")
       cardNumber.classList.remove("card-flip")
       cardNumber.classList.remove("revealed")
-    }, 500)
+      selectedCard.classList.remove("selected")
+      selectedCard.classList.remove("card-flip")
+      selectedCard.classList.remove("revealed")
+      selectedCard = "";
+    }, 1000)
   }
 }
