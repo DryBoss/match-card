@@ -97,18 +97,9 @@ h1 {
       background-color: transparent;
       border: 2px solid $text;
       border-radius: 10px;
-      &:hover {
-        border-color: $brightest;
-      }
       img {
         width: 90%;
       }
-    }
-    #restart:hover img {
-      content: url("/images/icons/restart_hover.png");
-    }
-    #help:hover img {
-      content: url("/images/icons/help_hover.png");
     }
   }
 
@@ -125,5 +116,13 @@ a:hover {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  a:hover { color: red; }
+  button:hover {
+    border-color: $brightest;
+  }
+  #restart:hover img {
+    content: url("/images/icons/restart_hover.png");
+  }
+  #help:hover img {
+    content: url("/images/icons/help_hover.png");
+  }
 }

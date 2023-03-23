@@ -87,17 +87,8 @@ h1 {
   border: 2px solid #9FA2A6;
   border-radius: 10px;
 }
-.buttons button:hover {
-  border-color: #F2F2F2;
-}
 .buttons button img {
   width: 90%;
-}
-.buttons #restart:hover img {
-  content: url("/images/icons/restart_hover.png");
-}
-.buttons #help:hover img {
-  content: url("/images/icons/help_hover.png");
 }
 
 footer {
@@ -112,7 +103,13 @@ a:hover {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  a:hover {
-    color: red;
+  button:hover {
+    border-color: #F2F2F2;
+  }
+  #restart:hover img {
+    content: url("/images/icons/restart_hover.png");
+  }
+  #help:hover img {
+    content: url("/images/icons/help_hover.png");
   }
 }
