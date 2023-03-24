@@ -83,7 +83,7 @@ h1 {
     }
   }
 
-  .card-flip.hidden {
+  .card-flip {
     transform: scale(-1, 1);
     transition: 250ms;
   }
@@ -106,7 +106,7 @@ h1 {
     border: 2px solid $text;
     border-radius: 10px;
     button {
-      padding: 5px 10px;
+      padding: 10px 20px;
       color: $text;
       background-color: transparent;
       border: 2px solid $text;

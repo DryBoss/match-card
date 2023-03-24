@@ -75,7 +75,7 @@ h1 {
   border-radius: 5px;
 }
 
-.card-flip.hidden {
+.card-flip {
   transform: scale(-1, 1);
   transition: 250ms;
 }
@@ -99,7 +99,7 @@ h1 {
   border-radius: 10px;
 }
 .score-menu button {
-  padding: 5px 10px;
+  padding: 10px 20px;
   color: #9FA2A6;
   background-color: transparent;
   border: 2px solid #9FA2A6;

@@ -17,23 +17,13 @@ const card14 = document.querySelector("#c14");
 const card15 = document.querySelector("#c15");
 const card16 = document.querySelector("#c16");
 
-let time = 6;
+let time = 60;
 let flip = 0;
 let cards = [];
+let timeCountdown;
 let selectedCard = "";
 let selectedCardId = "";
 let animationCard = false;
-
-(function timeCountdown () {
-  setInterval(() => {
-    if (time <= 1) {
-      time = 0;
-    } else {
-      time -= 1;
-    }
-    timeShow.innerHTML = time;
-  }, 1000)
-})();
 
 function cardClicked (cardNumber, cardId) {
   if (selectedCard === "") {
@@ -55,9 +45,17 @@ function cardClicked (cardNumber, cardId) {
       selectedCard.classList.add("card-flip")
       selectedCard.children[0].src = showCard(selectedCardId)
       if (cards[cardId] === cards[selectedCardId]) {
+        cardNumber.classList.remove("hidden")
+        selectedCard.classList.remove("hidden")
         selectedCard = "";
         selectedCardId = "";
         animationCard = false;
+        if (![...document.querySelectorAll(".card")].some(card => card.classList.contains("hidden"))) {
+          clearInterval(timeCountdown);
+          document.querySelector(".score-menu").style.display = "block"
+          document.querySelector(".score-menu p").innerHTML = `your score<br><span id="score">0</span>`
+          document.querySelector("#score").textContent = (60 - flip) * time;
+        }
       } else {
         setTimeout(() => {
           cardNumber.classList.add("revealed")
@@ -81,13 +79,14 @@ function cardClicked (cardNumber, cardId) {
   }
 }
 
-(function genarateCards() {
+function generateCards() {
   for(var looped = 0; looped < 16; looped++) {
     let pickedCard;
     do {pickedCard = Math.floor(Math.random() * 8)} while (cards.filter(card => card === pickedCard).length > 1);
     cards.push(pickedCard);
   }
-})();
+}
+
 
 function showCard(cardId) {
   switch (cards[cardId]) {
@@ -120,7 +119,8 @@ function showCard(cardId) {
 
 function resetGame() {
   cards = [];
-  genarateCards();
+  generateCards();
+  document.querySelector(".score-menu").style.display = "none"
   time = 30;
   timeShow.innerHTML = time;
   flip = 0;
@@ -133,8 +133,19 @@ function resetGame() {
       card.classList.remove("selected")
       card.classList.remove("card-flip")
       card.classList.remove("revealed")
-      card.classList.add("shuffle")
       animationCard = false;
     }, 250)
   })
 }
+
+generateCards();
+timeCountdown = setInterval(() => {
+  if (time <= 1) {
+    time = 0;
+    document.querySelector(".score-menu").style.display = "block"
+    document.querySelector(".score-menu p").innerHTML = "times up!"
+  } else {
+      time -= 1;
+  }
+  timeShow.innerHTML = time;
+}, 1000)
