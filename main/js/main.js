@@ -1,43 +1,26 @@
 const timeShow = document.querySelector("#time span");
 const flipShow = document.querySelector("#flip span");
 const card1 = document.querySelector("#c1");
-const card1Img = document.querySelector("#c1-img");
 const card2 = document.querySelector("#c2");
-const card2Img = document.querySelector("#c2-img");
 const card3 = document.querySelector("#c3");
-const card3Img = document.querySelector("#c3-img");
 const card4 = document.querySelector("#c4");
-const card4Img = document.querySelector("#c4-img");
 const card5 = document.querySelector("#c5");
-const card5Img = document.querySelector("#c5-img");
 const card6 = document.querySelector("#c6");
-const card6Img = document.querySelector("#c6-img");
 const card7 = document.querySelector("#c7");
-const card7Img = document.querySelector("#c7-img");
 const card8 = document.querySelector("#c8");
-const card8Img = document.querySelector("#c8-img");
 const card9 = document.querySelector("#c9");
-const card9Img = document.querySelector("#c9-img");
 const card10 = document.querySelector("#c10");
-const card10Img = document.querySelector("#c10-img");
 const card11 = document.querySelector("#c11");
-const card11Img = document.querySelector("#c11-img");
 const card12 = document.querySelector("#c12");
-const card12Img = document.querySelector("#c12-img");
 const card13 = document.querySelector("#c13");
-const card13Img = document.querySelector("#c13-img");
 const card14 = document.querySelector("#c14");
-const card14Img = document.querySelector("#c14-img");
 const card15 = document.querySelector("#c15");
-const card15Img = document.querySelector("#c15-img");
 const card16 = document.querySelector("#c16");
-const card16Img = document.querySelector("#c16-img");
 
 let time = 6;
 let flip = 0;
 let cards = [];
 let selectedCard = "";
-let selectedCardImg = "";
 let selectedCardId = "";
 let animationCard = false;
 
@@ -52,16 +35,14 @@ let animationCard = false;
   }, 1000)
 })();
 
-function cardClicked (cardNumber, cardNumberImg, cardId) {
+function cardClicked (cardNumber, cardId) {
   if (selectedCard === "") {
     cardNumber.classList.add("selected");
     selectedCard = cardNumber;
-    selectedCardImg = cardNumberImg;
     selectedCardId = cardId;
   } else if (selectedCard === cardNumber) {
     cardNumber.classList.remove("selected");
     selectedCard = "";
-    selectedCardImg = "";
     selectedCardId = "";
   } else if (selectedCard !== cardNumber) {
     if (animationCard) {} else {
@@ -70,20 +51,19 @@ function cardClicked (cardNumber, cardNumberImg, cardId) {
       animationCard = true;
       cardNumber.classList.add("selected")
       cardNumber.classList.add("card-flip")
-      cardNumberImg.src = showCard(cardId)
+      cardNumber.children[0].src = showCard(cardId)
       selectedCard.classList.add("card-flip")
-      selectedCardImg.src = showCard(selectedCardId)
+      selectedCard.children[0].src = showCard(selectedCardId)
       if (cards[cardId] === cards[selectedCardId]) {
         selectedCard = "";
-        selectedCardImg = "";
         selectedCardId = "";
         animationCard = false;
       } else {
         setTimeout(() => {
           cardNumber.classList.add("revealed")
-          cardNumberImg.src = "images/cards/hide-card.png"
+          cardNumber.children[0].src = "images/cards/hide-card.png"
           selectedCard.classList.add("revealed")
-          selectedCardImg.src = "images/cards/hide-card.png"
+          selectedCard.children[0].src = "images/cards/hide-card.png"
         }, 750)
         setTimeout(() => {
           cardNumber.classList.remove("selected")
@@ -93,7 +73,6 @@ function cardClicked (cardNumber, cardNumberImg, cardId) {
           selectedCard.classList.remove("card-flip")
           selectedCard.classList.remove("revealed")
           selectedCard = "";
-          selectedCardImg = "";
           selectedCardId = "";
           animationCard = false;
         }, 1000)
@@ -102,13 +81,13 @@ function cardClicked (cardNumber, cardNumberImg, cardId) {
   }
 }
 
-function genarateCards() {
-  for(let looped = 0; looped < 16; looped++) {
+(function genarateCards() {
+  for(var looped = 0; looped < 16; looped++) {
     let pickedCard;
     do {pickedCard = Math.floor(Math.random() * 8)} while (cards.filter(card => card === pickedCard).length > 1);
     cards.push(pickedCard);
   }
-}
+})();
 
 function showCard(cardId) {
   switch (cards[cardId]) {
@@ -140,11 +119,22 @@ function showCard(cardId) {
 }
 
 function resetGame() {
+  cards = [];
   genarateCards();
-  document.querySelectorAll(".card").forEach(x => {
-    console.log(x)
+  time = 30;
+  timeShow.innerHTML = time;
+  flip = 0;
+  flipShow.innerHTML = flip;
+  document.querySelectorAll(".card").forEach(card => {
+    animationCard = true;
+    card.classList.add("revealed")
+    card.children[0].src = "images/cards/hide-card.png"
+    setTimeout(() => {
+      card.classList.remove("selected")
+      card.classList.remove("card-flip")
+      card.classList.remove("revealed")
+      card.classList.add("shuffle")
+      animationCard = false;
+    }, 250)
   })
 }
-
-
-genarateCards();

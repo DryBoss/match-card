@@ -15,6 +15,11 @@ a {
   color: #9FA2A6;
 }
 
+button {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
+}
+
 body {
   background-color: #0D0D0D;
 }
@@ -44,6 +49,7 @@ h1 {
 }
 
 .cards {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -79,6 +85,27 @@ h1 {
   transition: 250;
 }
 
+.score-menu {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #0D0D0D;
+  border: 2px solid #9FA2A6;
+  border-radius: 10px;
+}
+.score-menu button {
+  padding: 5px 10px;
+  color: #9FA2A6;
+  background-color: transparent;
+  border: 2px solid #9FA2A6;
+  border-radius: 10px;
+}
+
 .buttons button {
   padding: 10px;
   height: 50px;
@@ -104,6 +131,7 @@ a:hover {
 
 @media (hover: hover) and (pointer: fine) {
   button:hover {
+    color: #F2F2F2;
     border-color: #F2F2F2;
   }
   #restart:hover img {

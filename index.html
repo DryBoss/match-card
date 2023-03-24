@@ -31,58 +31,63 @@
     </div>
     <div class="game-play">
       <div class="game-info">
-        <p id="time"><span>120</span>s</p>
+        <p id="time"><span>30</span>s</p>
         <p id="flip"><span>0</span> flips</p>
       </div>
       <div class="cards">
-        <div class="card hidden" id="c1"  onclick="cardClicked(card1, card1Img, 0)">
+        <div class="card hidden" id="c1"  onclick="cardClicked(card1, 0)">
           <img src="images/cards/hide-card.png" alt="" id="c1-img">
         </div>
-        <div class="card hidden" id="c2"  onclick="cardClicked(card2, card2Img, 1)">
+        <div class="card hidden" id="c2"  onclick="cardClicked(card2, 1)">
           <img src="images/cards/hide-card.png" alt="" id="c2-img">
         </div>
-        <div class="card hidden" id="c3"  onclick="cardClicked(card3, card3Img, 2)">
+        <div class="card hidden" id="c3"  onclick="cardClicked(card3, 2)">
           <img src="images/cards/hide-card.png" alt="" id="c3-img">
         </div>
-        <div class="card hidden" id="c4"  onclick="cardClicked(card4, card4Img, 3)">
+        <div class="card hidden" id="c4"  onclick="cardClicked(card4, 3)">
           <img src="images/cards/hide-card.png" alt="" id="c4-img">
         </div>
-        <div class="card hidden" id="c5"  onclick="cardClicked(card5, card5Img, 4)">
+        <div class="card hidden" id="c5"  onclick="cardClicked(card5, 4)">
           <img src="images/cards/hide-card.png" alt="" id="c5-img">
         </div>
-        <div class="card hidden" id="c6"  onclick="cardClicked(card6, card6Img, 5)">
+        <div class="card hidden" id="c6"  onclick="cardClicked(card6, 5)">
           <img src="images/cards/hide-card.png" alt="" id="c6-img">
         </div>
-        <div class="card hidden" id="c7"  onclick="cardClicked(card7, card7Img, 6)">
+        <div class="card hidden" id="c7"  onclick="cardClicked(card7, 6)">
           <img src="images/cards/hide-card.png" alt="" id="c7-img">
         </div>
-        <div class="card hidden" id="c8"  onclick="cardClicked(card8, card8Img, 7)">
+        <div class="card hidden" id="c8"  onclick="cardClicked(card8, 7)">
           <img src="images/cards/hide-card.png" alt="" id="c8-img">
         </div>
-        <div class="card hidden" id="c9"  onclick="cardClicked(card9, card9Img, 8)">
+        <div class="card hidden" id="c9"  onclick="cardClicked(card9, 8)">
           <img src="images/cards/hide-card.png" alt="" id="c9-img">
         </div>
-        <div class="card hidden" id="c10"  onclick="cardClicked(card10, card10Img, 9)">
+        <div class="card hidden" id="c10"  onclick="cardClicked(card10, 9)">
           <img src="images/cards/hide-card.png" alt="" id="c10-img">
         </div>
-        <div class="card hidden" id="c11"  onclick="cardClicked(card11, card11Img, 10)">
+        <div class="card hidden" id="c11"  onclick="cardClicked(card11, 10)">
           <img src="images/cards/hide-card.png" alt="" id="c11-img">
         </div>
-        <div class="card hidden" id="c12"  onclick="cardClicked(card12, card12Img, 11)">
+        <div class="card hidden" id="c12"  onclick="cardClicked(card12, 11)">
           <img src="images/cards/hide-card.png" alt="" id="c12-img">
         </div>
-        <div class="card hidden" id="c13"  onclick="cardClicked(card13, card13Img, 12)">
+        <div class="card hidden" id="c13"  onclick="cardClicked(card13, 12)">
           <img src="images/cards/hide-card.png" alt="" id="c13-img">
         </div>
-        <div class="card hidden" id="c14"  onclick="cardClicked(card14, card14Img, 13)">
+        <div class="card hidden" id="c14"  onclick="cardClicked(card14, 13)">
           <img src="images/cards/hide-card.png" alt="" id="c14-img">
         </div>
-        <div class="card hidden" id="c15"  onclick="cardClicked(card15, card15Img, 14)">
+        <div class="card hidden" id="c15"  onclick="cardClicked(card15, 14)">
           <img src="images/cards/hide-card.png" alt="" id="c15-img">
         </div>
-        <div class="card hidden" id="c16"  onclick="cardClicked(card16, card16Img, 15)">
+        <div class="card hidden" id="c16"  onclick="cardClicked(card16, 15)">
           <img src="images/cards/hide-card.png" alt="" id="c16-img">
         </div>
+      </div>
+      <div class="score-menu">
+        <p>GG! your score<bR>
+        <span id="score">0</span></p>
+        <button onclick="resetGame()">play again</button>
       </div>
     </div>
     <div class="buttons">
