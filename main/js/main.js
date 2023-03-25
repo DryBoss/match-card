@@ -115,6 +115,10 @@ function cardClicked (cardNumber, cardId) {
             document.querySelector(".score-menu").style.display = "block"
             document.querySelector(".score-menu p").innerHTML = `your score<br><span id="score">0</span>`
             document.querySelector("#score").textContent = (60 - flip) * time;
+            if ((60 - flip) * time > localStorage.getItem("highScore")) {
+              document.querySelector("#highscore span").innerHTML = (60 - flip) * time;
+              localStorage.setItem("highScore", (60 - flip) * time);
+            }
           }
         } else {
           setTimeout(() => {
@@ -166,5 +170,10 @@ function resetGame() {
   })
 }
 
+if (localStorage.getItem("highScore")) {
+  document.querySelector("#highscore span").innerHTML = localStorage.getItem("highScore");
+} else {
+  localStorage.setItem("highScore", 0);
+}
 generateCards();
 timeCount();
