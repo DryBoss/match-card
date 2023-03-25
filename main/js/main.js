@@ -84,7 +84,7 @@ function timeCount() {
 }
 
 function cardClicked (cardNumber, cardId) {
-  if (selectedCard === "") {
+  if (selectedCard === "" && cardNumber.classList.contains("hidden")) {
     cardNumber.classList.add("selected");
     selectedCard = cardNumber;
     selectedCardId = cardId;
@@ -92,9 +92,9 @@ function cardClicked (cardNumber, cardId) {
     cardNumber.classList.remove("selected");
     selectedCard = "";
     selectedCardId = "";
-  } else if (selectedCard !== cardNumber) {
+  } else if (selectedCard !== cardNumber && cardNumber.classList.contains("hidden")) {
     if (!gameOver) {
-      if (animationCard) {} else {
+      if (!animationCard) {
         flip += 1;
         flipShow.innerHTML = flip;
         animationCard = true;
@@ -126,7 +126,7 @@ function cardClicked (cardNumber, cardId) {
             cardNumber.children[0].src = "images/cards/hide-card.png"
             selectedCard.classList.add("revealed")
             selectedCard.children[0].src = "images/cards/hide-card.png"
-          }, 750)
+          }, 350)
           setTimeout(() => {
             cardNumber.classList.remove("selected")
             cardNumber.classList.remove("card-flip")
@@ -137,7 +137,7 @@ function cardClicked (cardNumber, cardId) {
             selectedCard = "";
             selectedCardId = "";
             animationCard = false;
-          }, 1000)
+          }, 600)
         }
       }
     }
@@ -150,6 +150,7 @@ function resetGame() {
   selectedCardId = "";
   cards = [];
   generateCards();
+  clearInterval(timeCountdown);
   timeCount();
   document.querySelector(".score-menu").style.display = "none"
   time = 60;

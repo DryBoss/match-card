@@ -113,7 +113,7 @@ h1 {
       border-radius: 10px;
     }
   }
-  
+
   //buttons
   .buttons {
     button {
@@ -145,11 +145,5 @@ a:hover {
   button:hover {
     color: $brightest;
     border-color: $brightest;
-  }
-  #restart:hover img {
-    content: url("/images/icons/restart_hover.png");
-  }
-  #help:hover img {
-    content: url("/images/icons/help_hover.png");
   }
 }

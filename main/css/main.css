@@ -134,10 +134,4 @@ a:hover {
     color: #F2F2F2;
     border-color: #F2F2F2;
   }
-  #restart:hover img {
-    content: url("/images/icons/restart_hover.png");
-  }
-  #help:hover img {
-    content: url("/images/icons/help_hover.png");
-  }
 }
