@@ -27,9 +27,9 @@ let animationCard = false;
 let gameOver = false;
 
 function generateCards() {
-  for(var looped = 0; looped < 16; looped++) {
+  for (var looped = 0; looped < 16; looped++) {
     let pickedCard;
-    do {pickedCard = Math.floor(Math.random() * 8)} while (cards.filter(card => card === pickedCard).length > 1);
+    do { pickedCard = Math.floor(Math.random() * 8) } while (cards.filter(card => card === pickedCard).length > 1);
     cards.push(pickedCard);
   }
 }
@@ -77,13 +77,13 @@ function timeCount() {
       })
       clearInterval(timeCountdown);
     } else {
-        time -= 1;
+      time -= 1;
     }
     timeShow.innerHTML = time;
   }, 1000)
 }
 
-function cardClicked (cardNumber, cardId) {
+function cardClicked(cardNumber, cardId) {
   if (selectedCard === "" && cardNumber.classList.contains("hidden")) {
     cardNumber.classList.add("selected");
     selectedCard = cardNumber;
@@ -126,7 +126,7 @@ function cardClicked (cardNumber, cardId) {
             cardNumber.children[0].src = "images/cards/hide-card.png"
             selectedCard.classList.add("revealed")
             selectedCard.children[0].src = "images/cards/hide-card.png"
-          }, 350)
+          }, 500)
           setTimeout(() => {
             cardNumber.classList.remove("selected")
             cardNumber.classList.remove("card-flip")
