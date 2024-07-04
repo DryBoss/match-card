@@ -1,3 +1,4 @@
+//preloading images
 const cardImages = [
   "images/cards/4-of-hearts.png",
   "images/cards/10-of-hearts.png",
@@ -8,11 +9,10 @@ const cardImages = [
   "images/cards/king-of-hearts.png",
   "images/cards/queen-of-hearts.png",
 ];
-const images = [];
-for (let i = 0; i < 8; i++) {
-  images[i] = new Image();
-  images[i].src = cardImages[i];
-}
+cardImages.map((src) => {
+  const img = new Image();
+  img.src = src;
+});
 
 const timeShow = document.querySelector("#time span");
 const flipShow = document.querySelector("#flip span");
