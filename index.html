@@ -1,103 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!--meta data-->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!--meta data-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--tab-->
-  <link rel="shortcut icon" href="images/match-card-favicon.png" type="image/x-icon">
-  <title>Match Card</title>
+    <!--tab-->
+    <link
+      rel="shortcut icon"
+      href="images/match-card-favicon.png"
+      type="image/x-icon"
+    />
+    <title>Match Card</title>
 
-  <!--font [https://fonts.google.com/specimen/Press+Start+2P]-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!--font [https://fonts.google.com/specimen/Press+Start+2P]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
 
-  <!--js-->
-  <script src="main/js/main.js" defer></script>
-  <script src="main/js/style.js" defer></script>
+    <!--js-->
+    <script>
+      //creating a variable to maintain proper vh on mobile browsers
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    </script>
 
-  <!--css-->
-  <link rel="stylesheet" href="main/css/main.css">
-  
-</head>
-<body>
-  <div class="game-board">
-    <h1>Match Card</h1>
-    <p id="highscore">Highscore <span>0</span></p>
-    <div class="game-play">
-    </div>
-    <div class="game-play">
-      <div class="game-info">
-        <p id="time"><span>60</span>s</p>
-        <p id="flip"><span>0</span> flips</p>
+    <!--css-->
+    <link rel="stylesheet" href="main/css/main.css" />
+  </head>
+  <body>
+    <div class="game-board">
+      <h1>Match Card</h1>
+      <p id="highscore">Highscore <span>0</span></p>
+      <div class="game-play"></div>
+      <div class="game-play">
+        <div class="game-info">
+          <p id="time"><span>60</span>s</p>
+          <p id="flip"><span>0</span> flips</p>
+        </div>
+        <div class="cards">
+          <div class="card hidden" id="c1" onclick="cardClicked(card1, 0)">
+            <img src="images/cards/hide-card.png" alt="" id="c1-img" />
+          </div>
+          <div class="card hidden" id="c2" onclick="cardClicked(card2, 1)">
+            <img src="images/cards/hide-card.png" alt="" id="c2-img" />
+          </div>
+          <div class="card hidden" id="c3" onclick="cardClicked(card3, 2)">
+            <img src="images/cards/hide-card.png" alt="" id="c3-img" />
+          </div>
+          <div class="card hidden" id="c4" onclick="cardClicked(card4, 3)">
+            <img src="images/cards/hide-card.png" alt="" id="c4-img" />
+          </div>
+          <div class="card hidden" id="c5" onclick="cardClicked(card5, 4)">
+            <img src="images/cards/hide-card.png" alt="" id="c5-img" />
+          </div>
+          <div class="card hidden" id="c6" onclick="cardClicked(card6, 5)">
+            <img src="images/cards/hide-card.png" alt="" id="c6-img" />
+          </div>
+          <div class="card hidden" id="c7" onclick="cardClicked(card7, 6)">
+            <img src="images/cards/hide-card.png" alt="" id="c7-img" />
+          </div>
+          <div class="card hidden" id="c8" onclick="cardClicked(card8, 7)">
+            <img src="images/cards/hide-card.png" alt="" id="c8-img" />
+          </div>
+          <div class="card hidden" id="c9" onclick="cardClicked(card9, 8)">
+            <img src="images/cards/hide-card.png" alt="" id="c9-img" />
+          </div>
+          <div class="card hidden" id="c10" onclick="cardClicked(card10, 9)">
+            <img src="images/cards/hide-card.png" alt="" id="c10-img" />
+          </div>
+          <div class="card hidden" id="c11" onclick="cardClicked(card11, 10)">
+            <img src="images/cards/hide-card.png" alt="" id="c11-img" />
+          </div>
+          <div class="card hidden" id="c12" onclick="cardClicked(card12, 11)">
+            <img src="images/cards/hide-card.png" alt="" id="c12-img" />
+          </div>
+          <div class="card hidden" id="c13" onclick="cardClicked(card13, 12)">
+            <img src="images/cards/hide-card.png" alt="" id="c13-img" />
+          </div>
+          <div class="card hidden" id="c14" onclick="cardClicked(card14, 13)">
+            <img src="images/cards/hide-card.png" alt="" id="c14-img" />
+          </div>
+          <div class="card hidden" id="c15" onclick="cardClicked(card15, 14)">
+            <img src="images/cards/hide-card.png" alt="" id="c15-img" />
+          </div>
+          <div class="card hidden" id="c16" onclick="cardClicked(card16, 15)">
+            <img src="images/cards/hide-card.png" alt="" id="c16-img" />
+          </div>
+        </div>
+        <div class="score-menu">
+          <p>
+            your score<br />
+            <span id="score">0</span>
+          </p>
+          <button onclick="resetGame()">play again</button>
+        </div>
       </div>
-      <div class="cards">
-        <div class="card hidden" id="c1"  onclick="cardClicked(card1, 0)">
-          <img src="images/cards/hide-card.png" alt="" id="c1-img">
-        </div>
-        <div class="card hidden" id="c2"  onclick="cardClicked(card2, 1)">
-          <img src="images/cards/hide-card.png" alt="" id="c2-img">
-        </div>
-        <div class="card hidden" id="c3"  onclick="cardClicked(card3, 2)">
-          <img src="images/cards/hide-card.png" alt="" id="c3-img">
-        </div>
-        <div class="card hidden" id="c4"  onclick="cardClicked(card4, 3)">
-          <img src="images/cards/hide-card.png" alt="" id="c4-img">
-        </div>
-        <div class="card hidden" id="c5"  onclick="cardClicked(card5, 4)">
-          <img src="images/cards/hide-card.png" alt="" id="c5-img">
-        </div>
-        <div class="card hidden" id="c6"  onclick="cardClicked(card6, 5)">
-          <img src="images/cards/hide-card.png" alt="" id="c6-img">
-        </div>
-        <div class="card hidden" id="c7"  onclick="cardClicked(card7, 6)">
-          <img src="images/cards/hide-card.png" alt="" id="c7-img">
-        </div>
-        <div class="card hidden" id="c8"  onclick="cardClicked(card8, 7)">
-          <img src="images/cards/hide-card.png" alt="" id="c8-img">
-        </div>
-        <div class="card hidden" id="c9"  onclick="cardClicked(card9, 8)">
-          <img src="images/cards/hide-card.png" alt="" id="c9-img">
-        </div>
-        <div class="card hidden" id="c10"  onclick="cardClicked(card10, 9)">
-          <img src="images/cards/hide-card.png" alt="" id="c10-img">
-        </div>
-        <div class="card hidden" id="c11"  onclick="cardClicked(card11, 10)">
-          <img src="images/cards/hide-card.png" alt="" id="c11-img">
-        </div>
-        <div class="card hidden" id="c12"  onclick="cardClicked(card12, 11)">
-          <img src="images/cards/hide-card.png" alt="" id="c12-img">
-        </div>
-        <div class="card hidden" id="c13"  onclick="cardClicked(card13, 12)">
-          <img src="images/cards/hide-card.png" alt="" id="c13-img">
-        </div>
-        <div class="card hidden" id="c14"  onclick="cardClicked(card14, 13)">
-          <img src="images/cards/hide-card.png" alt="" id="c14-img">
-        </div>
-        <div class="card hidden" id="c15"  onclick="cardClicked(card15, 14)">
-          <img src="images/cards/hide-card.png" alt="" id="c15-img">
-        </div>
-        <div class="card hidden" id="c16"  onclick="cardClicked(card16, 15)">
-          <img src="images/cards/hide-card.png" alt="" id="c16-img">
-        </div>
-      </div>
-      <div class="score-menu">
-        <p>your score<bR>
-        <span id="score">0</span></p>
-        <button onclick="resetGame()">play again</button>
+      <div class="buttons">
+        <button id="restart" onclick="resetGame()">
+          <img src="images/icons/restart.png" alt="restart" />
+        </button>
+        <!--<button id="help"><img src="images/icons/help.png" alt="help"></button>-->
       </div>
     </div>
-    <div class="buttons">
-      <button id="restart" onclick="resetGame()"><img src="images/icons/restart.png" alt="restart"></button>
-      <!--<button id="help"><img src="images/icons/help.png" alt="help"></button>-->
-    </div>
-  </div>
-  <footer>
-    <a href="https://github.com/DryBoss/match-card" target="_blank" rel="noopener noreferrer">Source Code</a>
-    <p>Created by <a href="https://github.com/DryBoss" target="_blank" rel="noopener noreferrer">DryBoss</a></p>
-  </footer>
-</body>
+    <footer>
+      <a
+        href="https://github.com/DryBoss/match-card"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Source Code</a
+      >
+      <p>
+        Created by
+        <a
+          href="https://github.com/DryBoss"
+          target="_blank"
+          rel="noopener noreferrer"
+          >DryBoss</a
+        >
+      </p>
+    </footer>
+
+    <!--js-->
+    <script src="main/js/main.js" defer></script>
+  </body>
 </html>

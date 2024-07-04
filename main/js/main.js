@@ -14,6 +14,7 @@ cardImages.map((src) => {
   img.src = src;
 });
 
+//query selectors
 const timeShow = document.querySelector("#time span");
 const flipShow = document.querySelector("#flip span");
 const card1 = document.querySelector("#c1");
@@ -33,6 +34,7 @@ const card14 = document.querySelector("#c14");
 const card15 = document.querySelector("#c15");
 const card16 = document.querySelector("#c16");
 
+//global variables
 let time = 60;
 let flip = 0;
 let cards = [];
@@ -43,6 +45,7 @@ let animationCard = false;
 let gameOver = false;
 
 function generateCards() {
+  //generating card deck
   for (var looped = 0; looped < 16; looped++) {
     let pickedCard;
     do {
@@ -53,45 +56,49 @@ function generateCards() {
 }
 
 function showCard(cardId) {
+  //getting "cardId" and showing its picked card from "cards" array which was picked randomly
+  //when cardId is 0 it indicates first card element and card[cardId] gets the randomly generated card for this position indexing 0.
   switch (cards[cardId]) {
     case 0:
-      return "images/cards/4-of-hearts.png";
+      return cardImages[0];
       break;
     case 1:
-      return "images/cards/10-of-hearts.png";
+      return cardImages[1];
       break;
     case 2:
-      return "images/cards/ace-of-clubs.png";
+      return cardImages[2];
       break;
     case 3:
-      return "images/cards/ace-of-diamonds.png";
+      return cardImages[3];
       break;
     case 4:
-      return "images/cards/ace-of-spades.png";
+      return cardImages[4];
       break;
     case 5:
-      return "images/cards/jack-of-hearts.png";
+      return cardImages[5];
       break;
     case 6:
-      return "images/cards/king-of-hearts.png";
+      return cardImages[6];
       break;
     case 7:
-      return "images/cards/queen-of-hearts.png";
+      return cardImages[7];
       break;
   }
 }
 
 function timeCount() {
   timeCountdown = setInterval(() => {
-    if (time <= 1) {
+    if (time <= 0) {
+      // when times up
       gameOver = true;
       time = 0;
       document.querySelector(".score-menu").style.display = "block";
       document.querySelector(".score-menu p").innerHTML = "times up!";
       document.querySelectorAll(".card").forEach((card, cardId) => {
+        //making all card visible
         card.classList.add("selected");
         card.classList.add("card-flip");
-        card.children[0].src = showCard(cardId);
+        card.children[0].src = showCard(cardId); //children[0] selecting the img element
       });
       clearInterval(timeCountdown);
     } else {
@@ -102,6 +109,7 @@ function timeCount() {
 }
 
 function cardClicked(cardNumber, cardId) {
+  //figure out urself
   if (selectedCard === "" && cardNumber.classList.contains("hidden")) {
     cardNumber.classList.add("selected");
     selectedCard = cardNumber;
@@ -173,6 +181,7 @@ function cardClicked(cardNumber, cardId) {
 }
 
 function resetGame() {
+  //resetting game by setting all default values
   gameOver = false;
   selectedCard = "";
   selectedCardId = "";
@@ -186,10 +195,12 @@ function resetGame() {
   flip = 0;
   flipShow.innerHTML = flip;
   document.querySelectorAll(".card").forEach((card) => {
+    //hiding all the cards
     animationCard = true;
     card.classList.add("revealed");
     card.children[0].src = "images/cards/hide-card.png";
     setTimeout(() => {
+      //idk why tbh
       card.classList.remove("selected");
       card.classList.remove("card-flip");
       card.classList.remove("revealed");
@@ -200,11 +211,15 @@ function resetGame() {
 }
 
 if (localStorage.getItem("highScore")) {
+  //setting initial highscore, when website finish loading
   document.querySelector("#highscore span").innerHTML =
     localStorage.getItem("highScore");
 } else {
   localStorage.setItem("highScore", 0);
 }
 
+//first game
+//start as soon as the website finish loading
+//global variables does rest of the settings
 generateCards();
 timeCount();
